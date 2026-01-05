@@ -189,6 +189,98 @@ nav a:hover{opacity:.85}
   color:var(--muted);
 }
 
+.hero-interactive{
+  position:relative;
+  min-height:90vh;
+  background:url("https://conectadas.cl/wp-content/uploads/2025/04/Elevate-Senior-Living-1-1.png")
+             center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(75,47,99,.85),
+    rgba(75,47,99,.75)
+  );
+}
+
+.hero-content{
+  position:relative;
+  max-width:720px;
+  background:#ffffff;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.hero-cards{
+  display:flex;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.hero-tab{
+  flex:1;
+  padding:12px;
+  border-radius:999px;
+  border:1px solid #ddd;
+  background:#f3f3f7;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.hero-tab.active{
+  background:#4b2f63;
+  color:#fff;
+}
+
+.hero-panel{
+  display:none;
+  animation:fadeUp .4s ease;
+}
+
+.hero-panel.active{
+  display:block;
+}
+
+.hero-panel h1{
+  margin:0 0 12px;
+  font-size:32px;
+  color:#4b2f63;
+}
+
+.hero-panel p{
+  color:#555;
+  font-size:16px;
+  margin-bottom:20px;
+}
+
+.hero-btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:999px;
+  background:#e83e8c;
+  color:#fff;
+  font-weight:700;
+}
+
+.scroll-hint{
+  margin-top:24px;
+  text-align:center;
+  font-size:13px;
+  color:#777;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:none;}
+}
+
+
 /* =========================
    SECTIONS
    ========================= */
@@ -275,48 +367,67 @@ footer{
   </div>
 </header>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-card">
-      <h1>Conectadas 2025: autonomía financiera y herramientas para emprender</h1>
-      <p>
-        Realizamos talleres presenciales en Renca y Maipú para democratizar herramientas
-        que fortalecen la autonomía financiera, la gestión del emprendimiento
-        y el uso práctico de recursos digitales.
-      </p>
-      <div class="cta-row">
-        <button class="btn btn-primary">Conoce el programa</button>
-        <button class="btn btn-secondary">Ver portafolio de emprendedoras</button>
-      </div>
-      <div class="tags">
-        <span class="tag">Talleres presenciales</span>
-        <span class="tag">Herramientas digitales</span>
-        <span class="tag">Autonomía financiera</span>
-        <span class="tag">Red y comunidad</span>
-      </div>
+<section class="hero-interactive">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-cards">
+      <button class="hero-tab active" data-target="programa">El programa</button>
+      <button class="hero-tab" data-target="territorios">Renca y Maipú</button>
+      <button class="hero-tab" data-target="portafolio">Emprendedoras</button>
     </div>
 
-    <div class="info-col">
-      <div class="info-box">
-        <h3>2025 en dos comunas</h3>
-        <p>Renca y Maipú como territorios de implementación.</p>
-      </div>
-      <div class="info-box">
-        <h3>Aprendizaje práctico</h3>
-        <p>Herramientas aplicadas desde el primer día.</p>
-      </div>
-      <div class="info-box">
-        <h3>Portafolio visible</h3>
-        <p>Vitrina digital para los emprendimientos participantes.</p>
-      </div>
+    <div class="hero-panel active" id="programa">
+      <h1>Conectadas 2025</h1>
+      <p>
+        Autonomía financiera y herramientas digitales para mujeres emprendedoras
+        en Renca y Maipú.
+      </p>
+      <a class="hero-btn">Conoce el programa</a>
     </div>
+
+    <div class="hero-panel" id="territorios">
+      <h1>Trabajo territorial</h1>
+      <p>
+        Talleres presenciales con enfoque comunitario,
+        aplicados a la realidad local.
+      </p>
+      <a class="hero-btn">Ver territorios</a>
+    </div>
+
+    <div class="hero-panel" id="portafolio">
+      <h1>Portafolio vivo</h1>
+      <p>
+        Conoce los emprendimientos que forman parte de Conectadas 2025.
+      </p>
+      <a class="hero-btn">Explorar emprendedoras</a>
+    </div>
+
+    <div class="scroll-hint">Desliza para explorar</div>
   </div>
 </section>
+
 
 <footer>
   Conectadas · 2025 · Renca y Maipú<br>
   Sitio informativo y portafolio. No corresponde a una plataforma bancaria ni a servicios financieros.
 </footer>
+
+<script>
+  const tabs = document.querySelectorAll('.hero-tab');
+  const panels = document.querySelectorAll('.hero-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
 
 </body>
 </html>
