@@ -1,0 +1,81 @@
+[
+  {
+    "id": "eli-arte-sana",
+    "emprendimiento": "Eli-arte-sana",
+    "emprendedora": "María Elizabeth Candia",
+    "comuna": "Maipú",
+    "categoria": "Artesania",
+    "descripcion": "Realizo retratos de mascotas y figuras en vellón agujado hechos 100% a mano y con alto nivel de detalle. Ofrezco piezas personalizadas, destacando la calidad, dedicación y entrega puntual.",
+    "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-10.08.10.jpeg",
+    "rrss": {
+      "instagram": "https://instagram.com/mariacandiavaldivia",
+      "facebook": "https://facebook.com/mariacandiavaldivia"
+    },
+    "productos": [
+      {
+        "nombre": "Retrato personalizado",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-10.19.06.jpeg"
+      },
+      {
+        "nombre": "Figura en vellón",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-10.20.54.jpeg"
+      },
+      {
+        "nombre": "Encargo especial",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-10.25.34.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "mi-rincon-del-estampado",
+    "emprendimiento": "Mi Rincón del Estampado",
+    "emprendedora": "Elizabeth Fritz Ahumada",
+    "comuna": "Maipú",
+    "categoria": "Sublimación y personalizados",
+    "descripcion": "Mi Rincón del Estampado es un emprendimiento dedicado a la creación de poleras, bolsos, regalos personalizados y artículos de sublimación. Cada estampado es una oportunidad para crear algo único y auténtico.",
+    "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-16.11.27.jpeg",
+    "rrss": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/"
+    },
+    "productos": [
+      {
+        "nombre": "Poleras personalizadas",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-16.11.27-1.jpeg"
+      },
+      {
+        "nombre": "Bolsos estampados",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-16.11.28.jpeg"
+      },
+      {
+        "nombre": "Regalos personalizados",
+        "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-16.11.28-1.jpeg"
+      }
+    ]
+  },
+  {
+  "id": "hayley-terapia",
+  "emprendimiento": "Hayley Terapia",
+  "emprendedora": "Lenka Méndez",
+  "comuna": "Maipú",
+  "categoria": "TerapiasHolisticas",
+  "descripcion": "En Hayley Terapia te acompaño con el corazón y escucho tu alma. A través de las Flores de Bach y la meditación guiada, abro un espacio seguro para que tu mujer valiente y vulnerable pueda reconectar con su esencia, recuperar su valor y reconstruir su amor propio.",
+  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-10.07.06.jpeg",
+  "rrss": {},
+  "productos": [
+    {
+      "nombre": "Sesión Flores de Bach",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-10.07.06-1.jpeg"
+    },
+    {
+      "nombre": "Meditación guiada",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-10.07.06-2.jpeg"
+    },
+    {
+      "nombre": "Terapia holística grupal",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-10.07.07.jpeg"
+    }
+  ]
+}
+
+]
