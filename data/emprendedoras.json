@@ -105,28 +105,28 @@
   ]
 },
 {
-  "id": "pendiente-1",
-  "emprendimiento": "Nombre del emprendimiento (pendiente)",
-  "emprendedora": "Nombre de la emprendedora (pendiente)",
+  "id": "bcm-propiedades",
+  "emprendimiento": "BCM Propiedades y Asesorías Inmobiliarias",
+  "emprendedora": "Cristina Segura",
   "comuna": "Maipú",
-  "categoria": "Pendiente",
-  "descripcion": "Descripción pendiente. Este texto será actualizado cuando la emprendedora envíe la información completa sobre su emprendimiento.",
-  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.50.jpeg",
+  "categoria": "Inmobiliarias",
+  "descripcion": "BCM Propiedades y Asesorías Inmobiliarias es una oficina especializada en gestión de arriendos, ventas y administración de bienes raíces. Con una imagen sólida y profesional, ofrecemos un servicio responsable, transparente y orientado a resultados. Brindamos asesoría integral, evaluación de inmuebles, revisión documental, selección de arrendatarios y acompañamiento completo en cada operación. Nuestro compromiso es entregar confianza, eficiencia y soluciones inmobiliarias de alto estándar para propietarios e inversionistas.",
+  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-05-at-14.22.37.jpeg",
   "rrss": {
     "instagram": "",
     "whatsapp": ""
   },
   "productos": [
     {
-      "nombre": "Producto 1 (pendiente)",
+      "nombre": "Casa",
       "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.50-1.jpeg"
     },
     {
-      "nombre": "Producto 2 (pendiente)",
+      "nombre": "Terreno",
       "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.51.jpeg"
     },
     {
-      "nombre": "Producto 3 (pendiente)",
+      "nombre": "Preparación",
       "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.51-1.jpeg"
     }
   ]
