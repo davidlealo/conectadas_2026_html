@@ -76,6 +76,83 @@
       "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-04-at-10.07.07.jpeg"
     }
   ]
+},
+{
+  "id": "la-pelu-de-la-ceci",
+  "emprendimiento": "La pelu de la Ceci",
+  "emprendedora": "Cecilia",
+  "comuna": "Maipú",
+  "categoria": "ServiciosMascotas",
+  "descripcion": "La pelu de la Ceci es un lugar donde la mascota será tratada con respeto y cariño, utilizando productos naturales pensados para la piel del canino. Ofrecemos una atención personalizada, priorizando el bienestar y la tranquilidad de cada mascota.",
+  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-09.04.38.jpeg",
+  "rrss": {
+    "instagram": "",
+    "whatsapp": ""
+  },
+  "productos": [
+    {
+      "nombre": "Servicio de peluquería canina",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-09.04.38-1.jpeg"
+    },
+    {
+      "nombre": "Baño y cuidado con productos naturales",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-09.04.38-2.jpeg"
+    },
+    {
+      "nombre": "Atención personalizada para mascotas",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-09.04.39.jpeg"
+    }
+  ]
+},
+{
+  "id": "pendiente-1",
+  "emprendimiento": "Nombre del emprendimiento (pendiente)",
+  "emprendedora": "Nombre de la emprendedora (pendiente)",
+  "comuna": "Maipú",
+  "categoria": "Pendiente",
+  "descripcion": "Descripción pendiente. Este texto será actualizado cuando la emprendedora envíe la información completa sobre su emprendimiento.",
+  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.50.jpeg",
+  "rrss": {
+    "instagram": "",
+    "whatsapp": ""
+  },
+  "productos": [
+    {
+      "nombre": "Producto 1 (pendiente)",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.50-1.jpeg"
+    },
+    {
+      "nombre": "Producto 2 (pendiente)",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.51.jpeg"
+    },
+    {
+      "nombre": "Producto 3 (pendiente)",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-12-05-at-16.54.51-1.jpeg"
+    }
+  ]
+},
+{
+  "id": "retratos-mascotas-vellon",
+  "emprendimiento": "Retratos de Mascotas en Vellón Agujado",
+  "emprendedora": "María Elizabeth Candia Valdivia",
+  "comuna": "Maipú",
+  "categoria": "Artesania",
+  "descripcion": "Proyecto de retratos de mascotas realizado en vellón agujado, desarrollado a partir de una formación especializada. Cada pieza es hecha a mano, buscando capturar la esencia y expresión de cada mascota, incorporando nuevas técnicas y figuras en vellón.",
+  "imagenEmprendedora": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-07-23-at-15.26.27.jpeg",
+  "rrss": {
+    "instagram": "https://instagram.com/mariacandiavaldivia",
+    "facebook": "https://facebook.com/mariacandiavaldivia"
+  },
+  "productos": [
+    {
+      "nombre": "Retrato de mascota en vellón",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-07-23-at-18.52.16.jpeg"
+    },
+    {
+      "nombre": "Figura de mascota personalizada",
+      "imagen": "https://conectadas.cl/wp-content/uploads/2026/01/WhatsApp-Image-2025-07-23-at-14.51.02.jpeg"
+    }
+  ]
 }
 
 ]
