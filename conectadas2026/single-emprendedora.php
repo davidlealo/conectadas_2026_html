@@ -19,17 +19,17 @@
           <!-- Contenido -->
           <div class="profile-content">
 
-            <h3><?php the_title(); ?></h3>
+            <h1><?php the_title(); ?></h1>
 
             <!-- Comuna -->
-            <small>
-              <?php
-              $comunas = get_the_terms(get_the_ID(), 'comuna');
-              if ($comunas && !is_wp_error($comunas)) {
-                echo esc_html($comunas[0]->name);
-              }
-              ?>
-            </small>
+            <?php
+            $comunas = get_the_terms(get_the_ID(), 'comuna');
+            if (!empty($comunas) && !is_wp_error($comunas)) :
+            ?>
+              <small class="comuna">
+                <?php echo esc_html($comunas[0]->name); ?>
+              </small>
+            <?php endif; ?>
 
             <!-- Descripción -->
             <div class="profile-description">
@@ -38,49 +38,47 @@
 
             <!-- REDES SOCIALES -->
             <?php
-            // Campos ACF
-            $whatsapp  = function_exists('get_field') ? get_field('whatsapp') : '';
-            $instagram = function_exists('get_field') ? get_field('instagram') : '';
-            $facebook  = function_exists('get_field') ? get_field('facebook') : '';
+            $whatsapp  = get_post_meta(get_the_ID(), 'whatsapp', true);
+            $instagram = get_post_meta(get_the_ID(), 'instagram', true);
+            $facebook  = get_post_meta(get_the_ID(), 'facebook', true);
 
             // Normalizar WhatsApp
-            function conectadas_format_whatsapp($raw) {
-              if (!$raw) return '';
-              $number = preg_replace('/[^0-9]/', '', $raw);
-              if (strlen($number) === 9) {
-                $number = '56' . $number;
+            if ($whatsapp) {
+              $whatsapp = preg_replace('/[^0-9]/', '', $whatsapp);
+              if (strlen($whatsapp) === 9) {
+                $whatsapp = '56' . $whatsapp;
               }
-              return 'https://wa.me/' . $number;
+              $whatsapp = 'https://wa.me/' . $whatsapp;
             }
 
-            if ($whatsapp || $instagram || $facebook):
+            if ($whatsapp || $instagram || $facebook) :
             ?>
               <div class="rrss">
 
-                <?php if ($whatsapp): ?>
-                  <a href="<?php echo esc_url(conectadas_format_whatsapp($whatsapp)); ?>"
+                <?php if ($whatsapp) : ?>
+                  <a href="<?php echo esc_url($whatsapp); ?>"
                      target="_blank"
+                     rel="noopener"
                      aria-label="WhatsApp">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/whatsapp.svg"
-                         alt="WhatsApp">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/whatsapp.svg" alt="WhatsApp">
                   </a>
                 <?php endif; ?>
 
-                <?php if ($instagram): ?>
+                <?php if ($instagram) : ?>
                   <a href="<?php echo esc_url($instagram); ?>"
                      target="_blank"
+                     rel="noopener"
                      aria-label="Instagram">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram.svg"
-                         alt="Instagram">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram.svg" alt="Instagram">
                   </a>
                 <?php endif; ?>
 
-                <?php if ($facebook): ?>
+                <?php if ($facebook) : ?>
                   <a href="<?php echo esc_url($facebook); ?>"
                      target="_blank"
+                     rel="noopener"
                      aria-label="Facebook">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook.svg"
-                         alt="Facebook">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook.svg" alt="Facebook">
                   </a>
                 <?php endif; ?>
 
