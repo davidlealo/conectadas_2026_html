@@ -111,9 +111,26 @@ function conectadas2026_register_categoria_taxonomy() {
 }
 add_action('init', 'conectadas2026_register_categoria_taxonomy');
 
+/* =========================================================
+ * 5. TAXONOMÍA: WhatsApp Formateado
+ * ========================================================= */
+
+function conectadas_format_whatsapp($raw) {
+  if (!$raw) return '';
+
+  // eliminar espacios, +, guiones, paréntesis
+  $number = preg_replace('/[^0-9]/', '', $raw);
+
+  // asegurar prefijo país si no viene
+  if (strlen($number) === 9) {
+    $number = '56' . $number;
+  }
+
+  return 'https://wa.me/' . $number;
+}
 
 /* =========================================================
- * 5. TAXONOMÍA: COMUNA
+ * 6. TAXONOMÍA: COMUNA
  * ========================================================= */
 
 function conectadas2026_register_comuna_taxonomy() {

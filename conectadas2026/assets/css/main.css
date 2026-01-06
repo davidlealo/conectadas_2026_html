@@ -1080,3 +1080,14 @@ select:hover {
   color: inherit;
   display: block;
 }
+
+
+.rrss a img {
+  width: 36px;
+  height: 36px;
+  transition: transform .2s ease;
+}
+
+.rrss a:hover img {
+  transform: scale(1.1);
+}
