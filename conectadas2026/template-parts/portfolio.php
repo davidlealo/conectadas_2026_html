@@ -1,7 +1,6 @@
 <section id="portafolio">
   <div class="container">
 
-    <!-- Header sección -->
     <div class="section-header">
       <h2>Portafolio de emprendedoras</h2>
       <p class="section-lead">
@@ -9,137 +8,89 @@
       </p>
     </div>
 
+    <?php
+    $comunas = get_categories([
+      'taxonomy'   => 'category',
+      'hide_empty' => false,
+    ]);
+
+    $tags = get_tags([
+      'hide_empty' => false,
+    ]);
+    ?>
+
     <!-- FILTROS -->
-    <form method="get" class="filters">
-
-      <!-- Filtro Comuna -->
-      <select name="comuna">
+    <div class="filters">
+      <select id="filterComuna">
         <option value="">Todas las comunas</option>
-        <?php
-        $comunas = get_terms([
-          'taxonomy'   => 'comuna',
-          'hide_empty' => true,
-        ]);
-
-        if (!is_wp_error($comunas)) {
-          foreach ($comunas as $comuna) {
-            $selected = (isset($_GET['comuna']) && $_GET['comuna'] === $comuna->slug) ? 'selected' : '';
-            echo '<option value="' . esc_attr($comuna->slug) . '" ' . $selected . '>' . esc_html($comuna->name) . '</option>';
-          }
-        }
-        ?>
+        <?php foreach ($comunas as $c): ?>
+          <option value="<?php echo esc_attr($c->name); ?>">
+            <?php echo esc_html($c->name); ?>
+          </option>
+        <?php endforeach; ?>
       </select>
 
-      <!-- Filtro Categoría -->
-      <select name="categoria">
-        <option value="">Todas las categorías</option>
-        <?php
-        $categorias = get_terms([
-          'taxonomy'   => 'categoria_emprendimiento',
-          'hide_empty' => true,
-        ]);
-
-        if (!is_wp_error($categorias)) {
-          foreach ($categorias as $cat) {
-            $selected = (isset($_GET['categoria']) && $_GET['categoria'] === $cat->slug) ? 'selected' : '';
-            echo '<option value="' . esc_attr($cat->slug) . '" ' . $selected . '>' . esc_html($cat->name) . '</option>';
-          }
-        }
-        ?>
+      <select id="filterCategoria">
+        <option value="">Todos los rubros</option>
+        <?php foreach ($tags as $t): ?>
+          <option value="<?php echo esc_attr($t->name); ?>">
+            <?php echo esc_html($t->name); ?>
+          </option>
+        <?php endforeach; ?>
       </select>
 
-      <button type="submit" class="btn secondary">Filtrar</button>
+      <select id="filterOrden">
+        <option value="az">Orden A–Z</option>
+        <option value="za">Orden Z–A</option>
+      </select>
 
-    </form>
+      <span style="margin-left:auto">
+        Mostrando <strong id="resultsCount">0</strong>
+      </span>
+    </div>
 
-    <!-- GRID -->
-    <div class="grid">
+    <div class="grid" id="portfolioGrid">
 
       <?php
-      /* =========================
-       * QUERY CON FILTROS
-       * ========================= */
-
-      $args = [
-        'post_type'      => 'emprendedora',
+      $q = new WP_Query([
+        'post_type' => 'emprendedora',
         'posts_per_page' => -1,
-        'post_status'    => 'publish',
-      ];
+        'orderby' => 'title',
+        'order' => 'ASC',
+      ]);
 
-      $tax_query = [];
+      while ($q->have_posts()) : $q->the_post();
 
-      if (!empty($_GET['comuna'])) {
-        $tax_query[] = [
-          'taxonomy' => 'comuna',
-          'field'    => 'slug',
-          'terms'    => sanitize_text_field($_GET['comuna']),
-        ];
-      }
+        $cats = get_the_category();
+        $tags = get_the_tags();
 
-      if (!empty($_GET['categoria'])) {
-        $tax_query[] = [
-          'taxonomy' => 'categoria_emprendimiento',
-          'field'    => 'slug',
-          'terms'    => sanitize_text_field($_GET['categoria']),
-        ];
-      }
-
-      if (!empty($tax_query)) {
-        $args['tax_query'] = $tax_query;
-      }
-
-      $query = new WP_Query($args);
-
-      if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post();
+        $cat_names = array_map(fn($c) => $c->name, $cats ?: []);
+        $tag_names = array_map(fn($t) => $t->name, $tags ?: []);
       ?>
 
-        <!-- CARD -->
-        <a href="<?php the_permalink(); ?>" class="card-link">
-          <article class="card">
+        <a
+          class="card"
+          href="<?php the_permalink(); ?>"
+          data-comuna="<?php echo esc_attr(implode('|', $cat_names)); ?>"
+          data-categoria="<?php echo esc_attr(implode('|', $tag_names)); ?>"
+          data-title="<?php echo esc_attr(strtolower(get_the_title())); ?>"
+        >
+          <div class="thumb">
+            <?php the_post_thumbnail('medium_large'); ?>
+          </div>
 
-            <div class="thumb">
-              <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('medium_large'); ?>
-              <?php endif; ?>
+          <div class="card-body">
+            <h4><?php the_title(); ?></h4>
+            <p><?php echo wp_trim_words(strip_tags(get_the_content()), 18); ?></p>
+
+            <div class="badges">
+              <?php foreach ($cat_names as $c): ?><span><?php echo esc_html($c); ?></span><?php endforeach; ?>
+              <?php foreach ($tag_names as $t): ?><span><?php echo esc_html($t); ?></span><?php endforeach; ?>
             </div>
-
-            <div class="card-body">
-              <h4><?php the_title(); ?></h4>
-
-              <p>
-                <?php echo wp_trim_words(get_the_content(), 22); ?>
-              </p>
-
-              <div class="badges">
-                <?php
-                $comunas = get_the_terms(get_the_ID(), 'comuna');
-                if ($comunas && !is_wp_error($comunas)) {
-                  foreach ($comunas as $c) {
-                    echo '<span>' . esc_html($c->name) . '</span>';
-                  }
-                }
-
-                $categorias = get_the_terms(get_the_ID(), 'categoria_emprendimiento');
-                if ($categorias && !is_wp_error($categorias)) {
-                  foreach ($categorias as $cat) {
-                    echo '<span>' . esc_html($cat->name) . '</span>';
-                  }
-                }
-                ?>
-              </div>
-            </div>
-
-          </article>
+          </div>
         </a>
 
-      <?php
-        endwhile;
-        wp_reset_postdata();
-      else :
-        echo '<p>No hay emprendedoras publicadas con estos filtros.</p>';
-      endif;
-      ?>
+      <?php endwhile; wp_reset_postdata(); ?>
 
     </div>
   </div>
